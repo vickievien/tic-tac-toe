@@ -42,13 +42,28 @@ const GameComponent = (props) => {
         ];
         for (let i=0; i<winningSets.length; i++) {
             let [a,b,c] = winningSets[i];
-            if (arr[a] && arr[a] === arr[b] && arr[a] === arr[c]) {
-                console.log('win!')
-                return arr[a];
+
+            if (arr[a] === 'x' && arr[b] === 'x' && arr[c] === 'x') {
+                console.log('x wins!');
+                setToggleEndGameModal(true);
+                setXCounter(xCounter + 1);
+                setWinnerDisplay('x');
+                return;
+            } else if (arr[a] === 'o' && arr[b] === 'o' && arr[c] === 'o') {
+                console.log('o wins');
+                setToggleEndGameModal(true);
+                setOCounter(oCounter + 1);
+                setWinnerDisplay('o');
+                return;
+            } else {
+                setCountingTie(countingTie +1)
+                console.log(countingTie)
+                if(countingTie === 9) {
+                    setToggleEndGameModal(true);
+                    setTieCounter(tieCounter + 1)
+                    setWinnerDisplay('tie');
+                }
             }
-            console.log(arr[a]);
-            console.log(arr[b]);
-            console.log(arr[c]);
         }
         return null
     }
@@ -58,27 +73,6 @@ const GameComponent = (props) => {
         if(determineWinner(gridMark)) {
             console.log('there is a win');
             return null
-
-            //     IF X WINS
-            //     console.log('X wins')
-            //     setToggleEndGameModal(true);
-            //     setXCounter(xCounter + 1);
-            //     setWinnerDisplay('x');
-
-            //     IF O WINS
-            //     console.log('O wins')
-            //     setToggleEndGameModal(true);
-            //     setOCounter(oCounter + 1);
-            //     setWinnerDisplay('o');
-
-            //     IF TIE
-            //     setCountingTie(countingTie +1)
-            //     // console.log(countingTie)
-            //     if(countingTie === 9) {
-            //         setToggleEndGameModal(true);
-            //         setTieCounter(tieCounter + 1)
-            //         setWinnerDisplay('tie');
-            //     }
         }
         if (playerState === 'x') {
             setPlayerState('o');
