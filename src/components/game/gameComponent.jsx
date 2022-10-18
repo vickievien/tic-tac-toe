@@ -81,17 +81,10 @@ const GameComponent = (props) => {
         }
         if (playerState === 'x') {
             setPlayerState('o');
-            // document.querySelectorAll('.game-grid-item-container').forEach(gridItem => {
-            //     gridItem.classList.remove("o-hover")
-            //     gridItem.classList.add("x-hover")
-            // })
         } else {
             setPlayerState('x');
-            // document.querySelectorAll('.game-grid-item-container').forEach(gridItem => {
-            //     gridItem.classList.remove("x-hover")
-            //     gridItem.classList.add("o-hover")
-            // })
         }
+
         if(gridMark[gridNum] === null) {
             let newGridMark = [...gridMark];
             newGridMark[gridNum] = (playerState === 'x' ? "x" : "o");
@@ -101,6 +94,7 @@ const GameComponent = (props) => {
             newGridMarkDisplay[gridNum] = (playerState === 'x' ? <img src="/assets/icon-x.svg" alt="x-mark"/> : <img src="/assets/icon-o.svg" alt="o-mark"/>);
             setGridMarkDisplay(newGridMarkDisplay);
         }
+
     }
 
      
