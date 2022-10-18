@@ -4,7 +4,7 @@ const GameGridComponent = (props) => {
     let gridItemComponents = [];
     for (let i=0; i < 9; i++) {
         gridItemComponents.push (
-            <GameGridItemComponent className={`grid-item-${i}`} key={`id-${i}`} togglePlayerState={props.togglePlayerState} playerState={props.playerState}  gridItemState={props.gridItemState} setGridItemState={props.setGridItemState} gridMark={props.gridMark} i={i}/>
+            <GameGridItemComponent className={`grid-item-${i}`} key={`id-${i}`} togglePlayerState={props.togglePlayerState} playerState={props.playerState}  gridItemState={props.gridItemState} setGridItemState={props.setGridItemState} gridMarkDisplay={props.gridMarkDisplay} i={i}/>
         )
     }
     return (
