@@ -259,6 +259,14 @@ margin-bottom: 16px;
     background-color: var(--light-yellow-hover);
 }
 
+.game-grid-item-container.x-hover.no-hover:hover {
+    background-color: var(--semi-dark-navy);
+}
+
+.game-grid-item-container.o-hover.no-hover:hover {
+    background-color: var(--semi-dark-navy);
+}
+
 .game-grid-item-container img {
     width: 40px;
     height: auto;

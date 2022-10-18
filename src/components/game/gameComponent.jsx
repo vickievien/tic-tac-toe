@@ -7,11 +7,8 @@ import ScoreboardComponent from "./scoreboardComponent";
 
 const GameComponent = (props) => {
     const [playerState, setPlayerState] = useState('x');
-    const [xArray, setXArray] = useState([]);
-    const [oArray, setOArray] = useState([]);
     const [gridMark, setGridMark] = useState(Array(9).fill(null));
     const [gridMarkDisplay, setGridMarkDisplay] = useState(Array(9).fill(null));
-    const [isX, setIsX] = useState(true);
     const [xCounter, setXCounter] = useState(0);
     const [oCounter, setOCounter] = useState(0);
     const [countingTie, setCountingTie] = useState(1);
@@ -106,10 +103,11 @@ const GameComponent = (props) => {
         }
     }
 
+     
     return (
         <div className="game-component-container">
         <HeaderComponent playerState={playerState} setPlayerState={setPlayerState} restartDisplay={restartDisplay} setRestartDisplay={setRestartDisplay} toggleRestartDisplay={toggleRestartDisplay}/>
-        <GameGridComponent playerState={playerState} setPlayerState={setPlayerState} togglePlayerState={togglePlayerState} gridMarkDisplay={gridMarkDisplay}/>
+        <GameGridComponent playerState={playerState} setPlayerState={setPlayerState} togglePlayerState={togglePlayerState} gridMarkDisplay={gridMarkDisplay} gridMark={gridMark}/>
         <ScoreboardComponent xCounter={xCounter} oCounter={oCounter} tieCounter={tieCounter}/>
         {toggleEndGameModal ?
         <NextRoundModalComponent winnerDisplay={winnerDisplay} setNewGameModal={props.setNewGameModal} clearRound={clearRound}/>
