@@ -13,7 +13,7 @@ const NextRoundModalComponent = (props) => {
                 {props.winnerDisplay === 'x' ? <Xmark /> : props.winnerDisplay === 'o' ? <Omark /> : props.winnerDisplay === 'tie' ? <Tiemark /> :""}
                 <div>
                     <a href='#' className='button button-silver button-modal' onClick={toggleQuitGame}>Quit</a>
-                    <a href='#' className='button button-yellow button-modal'onClick={props.clearGrid}>Next Round</a>
+                    <a href='#' className='button button-yellow button-modal'onClick={props.clearRound}>Next Round</a>
                 </div>
             </section>
             </div>

@@ -27,6 +27,14 @@ const GameComponent = (props) => {
         setGridMark(Array(9).fill(null));
         setGridMarkDisplay(Array(9).fill(null));
         setRestartDisplay(!restartDisplay);
+        setCountingTie(0);
+    }
+
+    const clearRound = () => {
+        setGridMark(Array(9).fill(null));
+        setGridMarkDisplay(Array(9).fill(null));
+        setToggleEndGameModal(!toggleEndGameModal);
+        setCountingTie(0);
     }
 
     const determineWinner = (arr) => {
@@ -104,7 +112,7 @@ const GameComponent = (props) => {
         <GameGridComponent playerState={playerState} setPlayerState={setPlayerState} togglePlayerState={togglePlayerState} gridMarkDisplay={gridMarkDisplay}/>
         <ScoreboardComponent xCounter={xCounter} oCounter={oCounter} tieCounter={tieCounter}/>
         {toggleEndGameModal ?
-        <NextRoundModalComponent winnerDisplay={winnerDisplay} setNewGameModal={props.setNewGameModal} clearGrid={clearGrid}/>
+        <NextRoundModalComponent winnerDisplay={winnerDisplay} setNewGameModal={props.setNewGameModal} clearRound={clearRound}/>
         :
         ""
         }
