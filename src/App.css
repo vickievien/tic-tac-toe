@@ -329,7 +329,9 @@ margin-bottom: 16px;
 }
 
 @media only screen and (min-width: 1024px){
-
+    .game-component-container {
+        margin-top: 100px;
+    }
 }
 
 /* NEXT ROUND MODAL */
