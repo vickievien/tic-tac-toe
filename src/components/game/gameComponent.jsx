@@ -61,12 +61,15 @@ const GameComponent = (props) => {
                 setWinnerDisplay('o');
                 return;
             } else {
-                setCountingTie(countingTie +1)
+                let newCountingTie = countingTie +1;
+                setCountingTie(newCountingTie);
                 console.log(countingTie)
-                if(countingTie === 9) {
+                
+                if(newCountingTie === 9) {
                     setToggleEndGameModal(true);
                     setTieCounter(tieCounter + 1)
                     setWinnerDisplay('tie');
+                    return;
                 }
             }
         }
@@ -74,28 +77,54 @@ const GameComponent = (props) => {
     }
 
     const togglePlayerState = (gridNum) => {
-        console.log(`clicking ${gridNum}`)
-        if(determineWinner(gridMark)) {
-            console.log('there is a win');
-            return null
+        let newGridMark = [...gridMark];
+
+        if(newGridMark[gridNum] === null) {
+            newGridMark[gridNum] = (playerState === 'x' ? "x" : "o");
+            
+            let newGridMarkDisplay = [...gridMarkDisplay];
+            newGridMarkDisplay[gridNum] = (playerState === 'x' ? <img src="/assets/icon-x.svg" alt="x-mark"/> : <img src="/assets/icon-o.svg" alt="o-mark"/>);
+            
+            setGridMark(newGridMark);
+            setGridMarkDisplay(newGridMarkDisplay);
         }
+
+        if(determineWinner(newGridMark)) {
+            return;
+        }
+
         if (playerState === 'x') {
             setPlayerState('o');
         } else {
             setPlayerState('x');
         }
-
-        if(gridMark[gridNum] === null) {
-            let newGridMark = [...gridMark];
-            newGridMark[gridNum] = (playerState === 'x' ? "x" : "o");
-            setGridMark(newGridMark);
-            
-            let newGridMarkDisplay = [...gridMarkDisplay];
-            newGridMarkDisplay[gridNum] = (playerState === 'x' ? <img src="/assets/icon-x.svg" alt="x-mark"/> : <img src="/assets/icon-o.svg" alt="o-mark"/>);
-            setGridMarkDisplay(newGridMarkDisplay);
-        }
-
     }
+
+
+
+    // const togglePlayerState = (gridNum) => {
+    //     console.log(`clicking ${gridNum}`)
+    //     if(determineWinner(gridMark)) {
+    //         console.log('there is a win');
+    //         return null
+    //     }
+    //     if (playerState === 'x') {
+    //         setPlayerState('o');
+    //     } else {
+    //         setPlayerState('x');
+    //     }
+
+    //     if(gridMark[gridNum] === null) {
+    //         let newGridMark = [...gridMark];
+    //         newGridMark[gridNum] = (playerState === 'x' ? "x" : "o");
+    //         setGridMark(newGridMark);
+            
+    //         let newGridMarkDisplay = [...gridMarkDisplay];
+    //         newGridMarkDisplay[gridNum] = (playerState === 'x' ? <img src="/assets/icon-x.svg" alt="x-mark"/> : <img src="/assets/icon-o.svg" alt="o-mark"/>);
+    //         setGridMarkDisplay(newGridMarkDisplay);
+    //     }
+
+    // }
 
      
     return (
