@@ -1,5 +1,4 @@
-import React, { useState } from "react"
-import NewGameMenuComponent from "../newGame/newGameMenuComponent"
+import React from "react"
 import Omark from "./oMarkComponent"
 import Xmark from "./xMarkComponent"
 import Tiemark from "./tieMarkComponent"
