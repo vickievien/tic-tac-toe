@@ -39,7 +39,7 @@ const NewGameMenuComponent = (props) => {
                 </div>
                 <p>Remember: X goes first</p>
             </div>
-            <a href='#' className='button button-yellow'>New Game (vs CPU)</a>
+            {/* <a href='#' className='button button-yellow'>New Game (vs CPU)</a> */}
             <a href='#' className='button button-light-blue'
             onClick={(!xMark && !oMark) ? playerSelectionError : props.toggleNewGameModal}>New Game (vs Player)</a>
             {playerSelectErrorModal ?
